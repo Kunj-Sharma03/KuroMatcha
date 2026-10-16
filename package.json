@@ -1,0 +1,19 @@
+{
+  "name": "kuro-3d-spatial-twin",
+  "version": "1.0.0",
+  "description": "KURO — 35°40'N | Micro-Point Spatial Twin (1.24M+ Volumetric LiDAR WebGL)",
+  "scripts": {
+    "dev": "npx -y serve .",
+    "serve": "python -m http.server 8088"
+  },
+  "keywords": [
+    "threejs",
+    "lidar",
+    "point-cloud",
+    "webgl",
+    "scrollytelling",
+    "matcha-bar"
+  ],
+  "author": "",
+  "license": "MIT"
+}

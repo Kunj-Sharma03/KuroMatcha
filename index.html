@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURO 黒 — 35°40'N | Single-Cultivar Matcha & Spatial Sanctuary</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js r128 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Fonts: Inter & Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="antialiased selection:bg-[#7CE354] selection:text-black bg-[#040504] text-[#FFFFFF]">
+
+    <!-- 1. FIXED 1.25M+ MICRO-PIXEL LIDAR WEBGL CANVAS -->
+    <canvas id="lidar-canvas" class="fixed inset-0 w-full h-full z-0 block cursor-grab active:cursor-grabbing"></canvas>
+
+    <!-- Subtle Radial Dark Gradient Veil for Flawless Typography Legibility -->
+    <div class="fixed inset-0 z-0 canvas-gradient-overlay pointer-events-none"></div>
+
+    <!-- Hover / Spatial Target Micro-Tag -->
+    <div id="object-micro-tag" class="object-micro-tag opacity-0">
+        <span id="micro-tag-text">KURO</span>
+    </div>
+
+    <!-- 2. LUXURY BRAND NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 sm:px-12 py-5 flex items-center justify-between pointer-events-auto">
+        <!-- Brand Mark -->
+        <a href="#story-hero" class="flex items-center gap-2.5 group">
+            <span class="w-2 h-2 rounded-full bg-[#7CE354] brand-pulse"></span>
+            <span class="font-bold text-sm tracking-[0.35em] text-white uppercase group-hover:text-[#7CE354] transition-colors">KURO</span>
+            <span class="text-[#7CE354] font-medium text-sm">黒</span>
+            <span class="text-white/20 text-xs">—</span>
+            <span class="font-mono text-[10px] tracking-widest text-white/50">35°40'N</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-7 nav-pill px-6 py-2 rounded-full text-xs text-white/70">
+            <a href="#story-atmosphere" class="hover:text-[#7CE354] transition-colors">Atmosphere</a>
+            <a href="#story-bakery" class="hover:text-[#7CE354] transition-colors">Viennoiserie</a>
+            <a href="#story-mill" class="hover:text-[#7CE354] transition-colors">The Stone Mill</a>
+            <a href="#story-whisk" class="hover:text-[#7CE354] transition-colors">Ritual</a>
+            <a href="#story-latte" class="hover:text-[#7CE354] transition-colors">Signature</a>
+            <a href="#brand-manifesto" class="hover:text-[#7CE354] transition-colors">Philosophy</a>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="flex items-center gap-3">
+            <button id="header-pulse-btn" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full nav-pill text-[11px] font-mono text-white/75 hover:text-[#7CE354] hover:border-[#7CE354]/40 transition-all" title="Emit LiDAR Depth Pulse">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#7CE354]"></span>
+                <span>LiDAR Pulse</span>
+            </button>
+            <a href="#brand-footer" class="px-4 py-1.5 rounded-full bg-white text-black hover:bg-[#7CE354] hover:text-black font-semibold text-xs tracking-wider uppercase transition-all duration-200">
+                Visit Us
+            </a>
+        </div>
+    </header>
+
+    <!-- 3. SCROLL PROGRESS INDICATOR (LEFT DOCK) -->
+    <aside class="fixed left-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-3 pointer-events-none">
+        <div class="w-[1px] h-24 bg-white/10 relative overflow-hidden">
+            <div id="side-progress-bar" class="w-full bg-[#7CE354] transition-all duration-100" style="height: 10%;"></div>
+        </div>
+        <span id="side-station-num" class="font-mono text-[9px] text-[#7CE354] tracking-widest -rotate-90">01 / 06</span>
+    </aside>
+
+    <!-- 4. SCROLLYTELLING BRAND CONTENT CONTAINER -->
+    <main class="relative z-10 w-full">
+
+        <!-- SLIDE 1: MONUMENTAL HERO INTRO -->
+        <section id="story-hero" class="story-section px-6 sm:px-16 lg:px-24 justify-start">
+            <div class="story-content pt-20">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full nav-pill mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#7CE354]"></span>
+                    <span class="brand-mono-badge text-[10px]">KYOTO TERROIR · SINGLE-CULTIVAR UJI</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.08]">
+                    KURO <span class="text-[#7CE354]">黒</span><br>
+                    <span class="text-white/40 font-light">Spatial Sanctuary.</span>
+                </h1>
+                <p class="text-sm sm:text-base text-white/75 font-light leading-relaxed mb-8 max-w-lg">
+                    A digital volumetric twin of our Uji matcha bar and roastery. Crafted from 1.25 million micro-points to preserve the stillness, granite stones, and sacred ceremony of first-harvest tea.
+                </p>
+                <div class="flex items-center gap-4">
+                    <a href="#story-atmosphere" class="inline-flex items-center gap-2 text-xs font-mono text-[#7CE354] tracking-widest uppercase hover:underline">
+                        <span>Scroll to enter space</span>
+                        <span>↓</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: ATMOSPHERE & ARCHITECTURE -->
+        <section id="story-atmosphere" class="story-section px-6 sm:px-16 lg:px-24 justify-end">
+            <div class="story-content">
+                <div class="brand-card p-7 sm:p-9">
+                    <span class="brand-mono-badge block mb-2">01 / THE SPACE</span>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        Wabi-Sabi Silence & <span class="text-[#7CE354]">Bistro Mosaic</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-white/70 font-light leading-relaxed mb-5">
+                        Step across the dark slate threshold into an acoustic haven. Hand-cut geometric terracotta and limestone tiles, warm Cognac leather banquettes, and blackened steel frames create an intimate dialogue between Kyoto tea tradition and modern industrial minimalism.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-[10px] font-mono text-white/50">
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">BISTRO MOSAIC</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">COGNAC LEATHER</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">2400K WARMTH</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: VIENNOISERIE & PASTRY CASE -->
+        <section id="story-bakery" class="story-section px-6 sm:px-16 lg:px-24 justify-start">
+            <div class="story-content">
+                <div class="brand-card p-7 sm:p-9">
+                    <span class="brand-mono-badge block mb-2">02 / THE VIENNOISERIE</span>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        Laminated Butter & <span class="text-[#7CE354]">Ceremonial Glazes</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-white/70 font-light leading-relaxed mb-5">
+                        Every morning, our illuminated case fills with viennoiserie tailored specifically to pair with the rich umami and gentle astringency of single-cultivar matcha. Fluted Bordeaux canelés with crisp matcha crowns, flaky croissants, and burnt Basque cheesecake.
+                    </p>
+                    <button id="btn-trigger-pastry" class="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#7CE354] hover:text-black font-mono text-xs text-white/90 transition-all">
+                        Slide Pastry Tray →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: THE GRANITE STONE MILL -->
+        <section id="story-mill" class="story-section px-6 sm:px-16 lg:px-24 justify-end">
+            <div class="story-content">
+                <div class="brand-card p-7 sm:p-9">
+                    <span class="brand-mono-badge block mb-2">03 / EXTRACTION & MILLING</span>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        The Granite <span class="text-[#7CE354]">Ishiusu Mill</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-white/70 font-light leading-relaxed mb-5">
+                        Our grooved Uji Mikage granite stones rotate at exactly 60 revolutions per hour. This ultra-slow cold-grinding prevents friction heat from degrading volatile chlorophyll and amino acids, creating vibrant green tencha micro-powder with remarkable sweetness.
+                    </p>
+                    <button id="btn-trigger-mill" class="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#7CE354] hover:text-black font-mono text-xs text-white/90 transition-all">
+                        ⚡ Boost Mill Speed (Ishiusu)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: THE WHISKING RITUAL -->
+        <section id="story-whisk" class="story-section px-6 sm:px-16 lg:px-24 justify-start">
+            <div class="story-content">
+                <div class="brand-card p-7 sm:p-9">
+                    <span class="brand-mono-badge block mb-2">04 / THE RITUAL</span>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        Hand-Whisked <span class="text-[#7CE354]">Ceremonial Usucha</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-white/70 font-light leading-relaxed mb-5">
+                        Prepared fresh to order in matte-black Kuro Raku chawan bowls using an 80-tine Takayama bamboo chasen. Whipped in rapid W-motions to create a dense jade micro-foam with velvety texture and lingering umami.
+                    </p>
+                    <button id="btn-trigger-whisk" class="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#7CE354] hover:text-black font-mono text-xs text-white/90 transition-all">
+                        🍵 Whisk Bamboo Chasen
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: THE SIGNATURE BEVERAGE -->
+        <section id="story-latte" class="story-section px-6 sm:px-16 lg:px-24 justify-end">
+            <div class="story-content">
+                <div class="brand-card p-7 sm:p-9">
+                    <span class="brand-mono-badge block mb-2">05 / THE SIGNATURE</span>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        Layered Iced <span class="text-[#7CE354]">Kuro Matcha Latte</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-white/70 font-light leading-relaxed mb-5">
+                        A three-tier study in density and temperature served at our walnut window counter. Choose between our signature espresso-cut Dirty Matcha, creamy oat foam, or first-harvest pure usucha over crystalline ice.
+                    </p>
+                    <div class="space-y-2">
+                        <span class="block font-mono text-[10px] text-white/50 uppercase tracking-widest">Select Variant:</span>
+                        <div class="flex flex-wrap gap-2">
+                            <button id="btn-variant-dirty" class="px-3 py-1.5 rounded bg-[#7CE354] text-black font-mono text-xs font-semibold transition-all">
+                                🖤 Kuro Dirty
+                            </button>
+                            <button id="btn-variant-oat" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-white font-mono text-xs transition-all">
+                                🥛 Uji Oat
+                            </button>
+                            <button id="btn-variant-ceremonial" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-white font-mono text-xs transition-all">
+                                🌿 Pure Usucha
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: GRAND BRAND KURO PHILOSOPHY MANIFESTO -->
+        <section id="brand-manifesto" class="relative min-h-screen flex items-center justify-center px-6 sm:px-16 lg:px-24 py-28 brand-glow">
+            <div class="max-w-4xl w-full text-center">
+                <span class="brand-mono-badge block mb-4 text-xs">KURO PHILOSOPHY · 35°40'N</span>
+                <h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6">
+                    TEA BEYOND SPEED.<br>
+                    <span class="text-[#7CE354]">A TEMPORAL PAUSE.</span>
+                </h2>
+                <p class="text-base sm:text-lg text-white/70 font-light leading-relaxed max-w-2xl mx-auto mb-16">
+                    In an era of relentless acceleration, Kuro is an architectural shelter. Every micro-point of our space is calibrated around mindfulness, single-origin terroir, and the meditative resonance of stone against stone.
+                </p>
+
+                <!-- 3 Pillars Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                    <div class="brand-card p-6 sm:p-7">
+                        <span class="font-mono text-xs text-[#7CE354] block mb-2">01 / TERROIR</span>
+                        <h3 class="text-lg font-semibold text-white mb-2">Single-Cultivar</h3>
+                        <p class="text-xs text-white/60 font-light leading-relaxed">
+                            Exclusively single-cultivar harvests (Samidori, Okumidori, and Asahi) sourced directly from 5th-generation family estates in Uji, Kyoto.
+                        </p>
+                    </div>
+                    <div class="brand-card p-6 sm:p-7">
+                        <span class="font-mono text-xs text-[#7CE354] block mb-2">02 / CRAFT</span>
+                        <h3 class="text-lg font-semibold text-white mb-2">Granite Milled</h3>
+                        <p class="text-xs text-white/60 font-light leading-relaxed">
+                            Milled in-house at 60 RPM on natural granite stones to preserve uncompromised umami, rich chlorophyll, and aromatic clarity.
+                        </p>
+                    </div>
+                    <div class="brand-card p-6 sm:p-7">
+                        <span class="font-mono text-xs text-[#7CE354] block mb-2">03 / SPACE</span>
+                        <h3 class="text-lg font-semibold text-white mb-2">Volumetric Twin</h3>
+                        <p class="text-xs text-white/60 font-light leading-relaxed">
+                            Captured in 1.25 million micro-points. A digital preservation of Japanese teahouse warmth and mid-century European cafe geometry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: LUXURY END FOOTER -->
+        <footer id="brand-footer" class="relative z-20 bg-[#040504]/95 border-t border-white/10 px-6 sm:px-16 lg:px-24 py-16 text-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-14">
+                    <!-- Column 1: Brand & Coordinates -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[#7CE354]"></span>
+                            <span class="font-bold text-base tracking-[0.3em] uppercase">KURO</span>
+                            <span class="text-[#7CE354] font-semibold text-base">黒</span>
+                        </div>
+                        <p class="font-mono text-xs text-white/50 leading-relaxed">
+                            35°40'12"N · 139°42'04"E<br>
+                            Kyoto Terroir · Tokyo Sanctuary
+                        </p>
+                        <p class="text-xs text-white/40 font-light pt-2">
+                            Single-cultivar ceremonial matcha bar & artisan viennoiserie.
+                        </p>
+                    </div>
+
+                    <!-- Column 2: Hours & Service -->
+                    <div>
+                        <span class="font-mono text-xs text-[#7CE354] uppercase tracking-wider block mb-3">Service Hours</span>
+                        <ul class="text-xs text-white/70 space-y-2 font-light">
+                            <li class="flex justify-between"><span class="text-white/40">Mon – Fri</span> <span>08:00 – 19:00</span></li>
+                            <li class="flex justify-between"><span class="text-white/40">Sat – Sun</span> <span>09:00 – 20:00</span></li>
+                            <li class="text-white/40 pt-2 font-mono text-[11px]">Walk-ins & bar reservations welcome.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Menu Archive Highlights -->
+                    <div>
+                        <span class="font-mono text-xs text-[#7CE354] uppercase tracking-wider block mb-3">Menu Selection</span>
+                        <ul class="text-xs text-white/70 space-y-1.5 font-light">
+                            <li class="hover:text-[#7CE354] transition-colors">01 · Kuro Dirty Matcha</li>
+                            <li class="hover:text-[#7CE354] transition-colors">02 · Iced Uji Oat Cloud Latte</li>
+                            <li class="hover:text-[#7CE354] transition-colors">03 · Samidori First-Harvest Bowl</li>
+                            <li class="hover:text-[#7CE354] transition-colors">04 · Matcha Canelé de Bordeaux</li>
+                            <li class="hover:text-[#7CE354] transition-colors">05 · Burnt Basque Cheesecake</li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Allocation List / Newsletter -->
+                    <div>
+                        <span class="font-mono text-xs text-[#7CE354] uppercase tracking-wider block mb-3">First-Harvest Allocation</span>
+                        <p class="text-xs text-white/60 font-light mb-3">
+                            Subscribe for seasonal micro-lot releases and private tea tasting reservations.
+                        </p>
+                        <form onsubmit="event.preventDefault(); alert('Thank you. You have been added to the Kuro First-Harvest Allocation List.');" class="flex items-center gap-2">
+                            <input type="email" required placeholder="Enter your email" class="w-full px-3 py-2 rounded bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-[#7CE354] font-mono">
+                            <button type="submit" class="px-3 py-2 rounded bg-[#7CE354] text-black font-semibold text-xs hover:bg-white transition-colors" aria-label="Subscribe">
+                                →
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Bottom Bar -->
+                <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-white/40">
+                    <div>
+                        © 2026 KURO MATCHA CO. ALL RIGHTS RESERVED.
+                    </div>
+                    <div class="text-[#7CE354]/75">
+                        1.25M VOLUMETRIC MICRO-POINTS · THREE.JS GLSL ENGINE
+                    </div>
+                    <div class="flex items-center gap-5 text-white/60">
+                        <a href="#story-hero" class="hover:text-[#7CE354] transition-colors">Back to Top ↑</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- 5. MODULAR APPLICATION SCRIPT -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

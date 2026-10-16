@@ -1,0 +1,139 @@
+/* ============================================================================
+   KURO — 35°40'N | Micro-Point Spatial Twin
+   Luxury Brand Landing Page Styles & Design System
+   ============================================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: #040504;
+}
+
+body {
+    margin: 0;
+    background-color: #040504;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Minimalist Dark Scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: #040504;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #7CE354;
+}
+
+/* Brand Accent Colors & Utilities */
+.text-brand-green {
+    color: #7CE354;
+}
+.bg-brand-green {
+    background-color: #7CE354;
+}
+.border-brand-green {
+    border-color: #7CE354;
+}
+
+/* Luxury Frosted Glass Cards */
+.brand-card {
+    background: rgba(8, 10, 8, 0.72);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.brand-card:hover {
+    border-color: rgba(124, 227, 84, 0.32);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.9), 0 0 30px rgba(124, 227, 84, 0.06);
+}
+
+/* Minimalist Brand Tag / Mono Badge */
+.brand-mono-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: #7CE354;
+    text-transform: uppercase;
+}
+
+/* Navigation Blur Pill */
+.nav-pill {
+    background: rgba(6, 8, 6, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Subtle Emerald Pulse for Live Status */
+@keyframes emeraldPulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(124, 227, 84, 0.9);
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.45;
+        box-shadow: 0 0 3px rgba(124, 227, 84, 0.3);
+        transform: scale(0.88);
+    }
+}
+.brand-pulse {
+    animation: emeraldPulse 2.6s infinite ease-in-out;
+}
+
+/* Raycast Hover Micro-Tag */
+.object-micro-tag {
+    position: fixed;
+    transform: translate(-50%, -140%);
+    pointer-events: none;
+    background: rgba(6, 8, 6, 0.94);
+    border: 1px solid rgba(124, 227, 84, 0.5);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: #FFFFFF;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85);
+    transition: opacity 0.15s ease;
+    z-index: 35;
+}
+
+/* Scrollytelling Section Styling */
+.story-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    pointer-events: none;
+}
+.story-content {
+    pointer-events: auto;
+    max-width: 540px;
+}
+
+/* Subtle Gradient Veil for Text Readability */
+.canvas-gradient-overlay {
+    background: radial-gradient(circle at 50% 50%, rgba(4, 5, 4, 0.15) 0%, rgba(4, 5, 4, 0.78) 75%, #040504 100%);
+    pointer-events: none;
+}
+
+/* End Brand Slide Gradient Glow */
+.brand-glow {
+    background: radial-gradient(circle at 50% 40%, rgba(124, 227, 84, 0.08) 0%, rgba(4, 5, 4, 0) 70%);
+}
